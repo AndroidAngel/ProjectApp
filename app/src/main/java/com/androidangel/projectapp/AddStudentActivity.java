@@ -1,44 +1,59 @@
 package com.androidangel.projectapp;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidangel.projectapp.data.Student;
 import com.androidangel.projectapp.database.StudentDbHelper;
 
+import java.util.Calendar;
+
 public class AddStudentActivity extends AppCompatActivity {
 
 
-
+    private static final String TAG = "AddStudentActivity";
     private EditText mNameET;
     private EditText mStudentNumberET;
-    private EditText mAgeSpinner;
+//    private EditText mAgeSpinner;
     private EditText mGenderET;
     private EditText mAddressET;
-    private EditText mBirthdayET;
+    private TextView mBirthdayET;
     private EditText mYearLevelET;
     private EditText mParentNameET;
     private EditText mImageUrlET;
     private EditText mHomeroomET;
     private EditText mContactNo;
 
+    private Spinner ageSpinner;
 
 
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
     Button submitBtn;
     StudentDbHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new);
 
+        addListenerOnSpinnerItemSelection();
+        addListenerOnButton();
+
         mStudentNumberET = findViewById(R.id.studentnoedit);
         mNameET = findViewById(R.id.nameedit);
-        mAgeSpinner = findViewById(R.id.ageSpinner);
+//        ageSpinner = findViewById(R.id.ageSpinner);
         mGenderET = findViewById(R.id.genderedittext);
         mYearLevelET = findViewById(R.id.yearleveledittext);
         mHomeroomET = findViewById(R.id.homeroomedittext);
@@ -57,14 +72,49 @@ public class AddStudentActivity extends AppCompatActivity {
                         saveStudent();
                     }
                 });
+         mBirthdayET.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Calendar cal = Calendar.getInstance();
+                 int year = cal.get(Calendar.YEAR);
+                 int month = cal.get(Calendar.MONTH);
+                 int day = cal.get(Calendar.DAY_OF_MONTH);
+                 DatePickerDialog dialog = new DatePickerDialog(
+                         AddStudentActivity.this,
+                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                         mDateSetListener,year,month,day);
+                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                 dialog.show();
+             }
+         });
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                Log.d(TAG, "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
+
+                String date = month + "/" + day + "/" + year;
+                mBirthdayET.setText(date);
+            }
+        };
+
 
             }
+
+    private void addListenerOnButton() {
+        ageSpinner = (Spinner)findViewById(R.id.ageSpinner);
+    }
+
+    private void addListenerOnSpinnerItemSelection() {
+        ageSpinner.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+    }
+
     private void saveStudent(){
 
                 String studentNumber = mStudentNumberET.getText().toString();
                 String name = mNameET.getText().toString().trim();
 
-                String age = mAgeSpinner.getText().toString().trim();
+//                String age = ageSpinner.getText().toString().trim();
 
                 String gender = mGenderET.getText().toString().trim();
                 String yearLevel = mYearLevelET.getText().toString().trim();
@@ -82,10 +132,10 @@ public class AddStudentActivity extends AppCompatActivity {
                 if(studentNumber.isEmpty()){
                     Toast.makeText(this, "You must enter a student number", Toast.LENGTH_SHORT).show();
                 }
-                if(age.isEmpty()){
-
-                    Toast.makeText(this, "You must enter an age", Toast.LENGTH_SHORT).show();
-                }
+//                if(age.isEmpty()){
+//
+//                    Toast.makeText(this, "You must enter an age", Toast.LENGTH_SHORT).show();
+//                }
                 if(gender.isEmpty()){
                     Toast.makeText(this, "You must enter a gender", Toast.LENGTH_SHORT).show();
                 }
@@ -110,7 +160,7 @@ public class AddStudentActivity extends AppCompatActivity {
                 if(image.isEmpty()){
                     Toast.makeText(this, "You must enter an Image Link", Toast.LENGTH_SHORT).show();
                 }
-                Student student = new Student(studentNumber, name, age , gender, yearLevel, homeRoom,
+                Student student = new Student(studentNumber, name, gender, yearLevel, homeRoom,
                         address, parentName, contactNo, birthday, image);
 
                 dbHelper.saveNewStudent(student);

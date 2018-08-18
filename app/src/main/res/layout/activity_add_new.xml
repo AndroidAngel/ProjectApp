@@ -67,13 +67,13 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <EditText
+                <Spinner
                     android:id="@+id/ageSpinner"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:hint="Age"
-                    android:textColorHint="#aeb0a5" />
+                    android:textColorHint="#aeb0a5"
+                    android:entries="@array/ageOptions" />
 
                 <!--<Spinner-->
                     <!--android:id="@+id/ageSpinner"-->
@@ -172,16 +172,15 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
-                <EditText
+                <TextView
                     android:id="@+id/birthdayedittext"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:hint="birthday"
-                    android:inputType="date"
-                    android:maxLines="1"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                     android:textColorHint="#aeb0a5" />
             </LinearLayout>
 
