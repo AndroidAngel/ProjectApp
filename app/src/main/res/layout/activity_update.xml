@@ -164,17 +164,16 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
-                <EditText
+                <TextView
                     android:id="@+id/birthdayedittextupdate"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:hint="birthday"
-                    android:inputType="date"
-                    android:maxLines="1"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                     android:textColorHint="#aeb0a5" />
             </LinearLayout>
 

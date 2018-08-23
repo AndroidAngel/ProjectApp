@@ -5,7 +5,7 @@ public class Student {
     private long id;
     private String studentNumber;
     private String name;
-    private int age;
+    private String age;
     private String gender;
     private String yearLevel;
     private String homeRoom;
@@ -18,7 +18,7 @@ public class Student {
 
     public Student() {
     }
-    public Student(String studentNumber, String name, int age, String gender,
+    public Student(String studentNumber, String name, String age, String gender,
                    String yearLevel, String homeRoom, String address, String parentName,
                    String contactNo, String birthday, String image) {
 
@@ -67,7 +67,7 @@ public class Student {
         return name;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
@@ -143,7 +143,7 @@ public class Student {
         this.gender = gender;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
 }
     }

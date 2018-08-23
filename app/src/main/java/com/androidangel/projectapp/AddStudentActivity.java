@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +25,7 @@ public class AddStudentActivity extends AppCompatActivity {
     private static final String TAG = "AddStudentActivity";
     private EditText mNameET;
     private EditText mStudentNumberET;
-//    private EditText mAgeSpinner;
+    private EditText mAgeSpinner;
     private EditText mGenderET;
     private EditText mAddressET;
     private TextView mBirthdayET;
@@ -36,7 +35,7 @@ public class AddStudentActivity extends AppCompatActivity {
     private EditText mHomeroomET;
     private EditText mContactNo;
 
-    private Spinner ageSpinner;
+//    private Spinner ageSpinner;
 
 
     private DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -48,12 +47,12 @@ public class AddStudentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new);
 
-        addListenerOnSpinnerItemSelection();
-        addListenerOnButton();
+//        addListenerOnSpinnerItemSelection();
+//        addListenerOnButton();
 
         mStudentNumberET = findViewById(R.id.studentnoedit);
         mNameET = findViewById(R.id.nameedit);
-//        ageSpinner = findViewById(R.id.ageSpinner);
+        mAgeSpinner = findViewById(R.id.ageSpinner);
         mGenderET = findViewById(R.id.genderedittext);
         mYearLevelET = findViewById(R.id.yearleveledittext);
         mHomeroomET = findViewById(R.id.homeroomedittext);
@@ -91,7 +90,8 @@ public class AddStudentActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                Log.d(TAG, "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
+                Log.d(TAG, "onDateSet: MM/dd/yyy: " + month + "/" + day + "/" + year);
+
 
                 String date = month + "/" + day + "/" + year;
                 mBirthdayET.setText(date);
@@ -101,20 +101,20 @@ public class AddStudentActivity extends AppCompatActivity {
 
             }
 
-    private void addListenerOnButton() {
-        ageSpinner = (Spinner)findViewById(R.id.ageSpinner);
-    }
-
-    private void addListenerOnSpinnerItemSelection() {
-        ageSpinner.setOnItemSelectedListener(new CustomOnItemSelectedListener());
-    }
+//    private void addListenerOnButton() {
+//        ageSpinner = (Spinner)findViewById(R.id.ageSpinner);
+//    }
+//
+//    private void addListenerOnSpinnerItemSelection() {
+//        ageSpinner.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+//    }
 
     private void saveStudent(){
 
                 String studentNumber = mStudentNumberET.getText().toString();
                 String name = mNameET.getText().toString().trim();
 
-//                String age = ageSpinner.getText().toString().trim();
+                String age = mAgeSpinner.getText().toString().trim();
 
                 String gender = mGenderET.getText().toString().trim();
                 String yearLevel = mYearLevelET.getText().toString().trim();
@@ -132,10 +132,10 @@ public class AddStudentActivity extends AppCompatActivity {
                 if(studentNumber.isEmpty()){
                     Toast.makeText(this, "You must enter a student number", Toast.LENGTH_SHORT).show();
                 }
-//                if(age.isEmpty()){
-//
-//                    Toast.makeText(this, "You must enter an age", Toast.LENGTH_SHORT).show();
-//                }
+                if(age.isEmpty()){
+
+                    Toast.makeText(this, "You must enter an age", Toast.LENGTH_SHORT).show();
+                }
                 if(gender.isEmpty()){
                     Toast.makeText(this, "You must enter a gender", Toast.LENGTH_SHORT).show();
                 }
@@ -160,12 +160,12 @@ public class AddStudentActivity extends AppCompatActivity {
                 if(image.isEmpty()){
                     Toast.makeText(this, "You must enter an Image Link", Toast.LENGTH_SHORT).show();
                 }
-                Student student = new Student(studentNumber, name, gender, yearLevel, homeRoom,
+                Student student = new Student(studentNumber, name, age, gender, yearLevel, homeRoom,
                         address, parentName, contactNo, birthday, image);
 
                 dbHelper.saveNewStudent(student);
 
-                goBackHome();
+
 
 }
     private void goBackHome(){

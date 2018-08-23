@@ -1,11 +1,312 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
 
-    <TextView
-        android:text="profile"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linear">
 
-</LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="25dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/imageschoolbckground" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:scaleType="centerCrop">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <!--counting of days present-->
+                    <ImageView
+                        android:id="@+id/presentimageP"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:src="@drawable/ic_human_handsup"
+                        tools:ignore="NestedWeights" />
+
+                    <TextView
+                        android:id="@+id/dayspresentP"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="456 Days Present"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/profileP"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:gravity="bottom"
+                    android:src="@drawable/chibichubby" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <!--counting of days absent -->
+                    <ImageView
+                        android:id="@+id/absentimageP"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:src="@drawable/ic_human_handsdown"
+                        tools:ignore="NestedWeights" />
+
+                    <TextView
+                        android:id="@+id/daysabsentP"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="20 Days Absent"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/nameP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#0000"
+                android:gravity="start"
+                android:maxLength="12"
+                android:padding="16dp"
+                android:text="Name"
+                android:textColor="#a2a1b8"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/studentnoP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#0000"
+                android:gravity="end"
+                android:hint="Student Number"
+                android:maxLength="12"
+                android:padding="16dp"
+                android:textColor="#a2a1b8"
+                android:textColorHint="#a2a1b8"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dad8d8" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/sectionP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#0000"
+                android:gravity="start"
+                android:maxLength="12"
+                android:padding="16dp"
+                android:text="Section"
+                android:textColor="#a2a1b8"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/gradeP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#0000"
+                android:gravity="end"
+                android:hint="Grade"
+                android:maxLength="12"
+                android:padding="16dp"
+                android:textColor="#a2a1b8"
+                android:textColorHint="#a2a1b8"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dad8d8" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/ageP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#0000"
+                android:gravity="start"
+                android:maxLength="12"
+                android:padding="16dp"
+                android:text="Age"
+                android:textColor="#a2a1b8"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/genderP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#0000"
+                android:gravity="end"
+                android:hint="Gender"
+                android:maxLength="12"
+                android:padding="16dp"
+                android:textColor="#a2a1b8"
+                android:textColorHint="#a2a1b8"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dad8d8" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/birthdayP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#0000"
+                android:gravity="start"
+                android:maxLength="12"
+                android:padding="16dp"
+                android:text="Birthday"
+                android:textColor="#a2a1b8"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/contactnoP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#0000"
+                android:gravity="end"
+                android:hint="Contact Number"
+                android:maxLength="12"
+                android:padding="16dp"
+                android:textColor="#a2a1b8"
+                android:textColorHint="#a2a1b8"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dad8d8" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#0000"
+                android:gravity="start"
+                android:maxLength="100"
+                android:padding="16dp"
+                android:text="In case of Emergency please Notify:"
+                android:textColor="#a2a1b8"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/parentnameP"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#0000"
+                android:gravity="end"
+                android:hint="Parent Name"
+                android:maxLength="100"
+                android:padding="16dp"
+                android:textColorHint="#a2a1b8"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dad8d8" />
+
+        <TextView
+            android:id="@+id/addressP"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#0000"
+            android:gravity="start"
+            android:hint="Address"
+            android:maxLength="12"
+            android:padding="16dp"
+            android:textColorHint="#a2a1b8"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

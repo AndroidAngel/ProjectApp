@@ -1,3 +1,38 @@
 <resources>
     <string name="app_name">Project App</string>
+
+
+
+    <string name="settings_title">Student Settings</string>
+    <string name="settings_menu">Settings</string>
+
+
+    <string name="settings_order_by_label">Order By</string>
+    <string name="settings_order_by_key" translatable="false">order_by</string>
+    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_name_value</string>
+
+    <string-array name="settings_order_by_labels">
+        <item>@string/settings_order_by_age_label</item>
+        <item>@string/settings_order_by_name_label</item>
+        <item>@string/settings_order_by_gender_label</item>
+    </string-array>
+
+
+    <string-array name="settings_order_by_values">
+        <item>@string/settings_order_by_age_value</item>
+        <item>@string/settings_order_by_name_value</item>
+        <item>@string/settings_order_by_gender_value</item>
+    </string-array>
+
+    <string name="settings_order_by_age_label">Age</string>
+    <string name="settings_order_by_age_value" translatable="false">age</string>
+
+    <string name="settings_order_by_name_label">Name</string>
+    <string name="settings_order_by_name_value" translatable="false">name</string>
+
+
+
+    <string name="settings_order_by_gender_label">Gender</string>
+    <string name="settings_order_by_gender_value" translatable="false">gender</string>
+
 </resources>

@@ -1,24 +1,34 @@
 package com.androidangel.projectapp;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidangel.projectapp.data.Student;
 import com.androidangel.projectapp.database.StudentDbHelper;
 
+import java.util.Calendar;
+
 public class UpdateActivity extends AppCompatActivity {
+
+    private static final String TAG = "UpdateActivity";
 
     private EditText mNameET;
     private EditText mStudentNumberET;
-    private EditText mAgeET;
+    private EditText mAgeSpinner;
     private EditText mGenderET;
     private EditText mAddressET;
-    private EditText mBirthdayET;
+    private TextView mBirthdayET;
     private EditText mYearLevelET;
     private EditText mParentNameET;
     private EditText mImageUrlET;
@@ -26,6 +36,8 @@ public class UpdateActivity extends AppCompatActivity {
     private EditText mContactNo;
 
     private Button mUpdateBtn;
+
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     private StudentDbHelper dbHelper;
     private long receivedStudentId;
@@ -38,7 +50,7 @@ public class UpdateActivity extends AppCompatActivity {
 
         mNameET = findViewById(R.id.nameeditupdate);
         mStudentNumberET = findViewById(R.id.studentnoeditupdate);
-        mAgeET = findViewById(R.id.ageedittextupdate);
+        mAgeSpinner = findViewById(R.id.ageedittextupdate);
         mGenderET = findViewById(R.id.genderedittextupdate);
         mYearLevelET = findViewById(R.id.yearleveledittextupdate);
         mHomeroomET = findViewById(R.id.homeroomedittextupdate);
@@ -62,7 +74,7 @@ public class UpdateActivity extends AppCompatActivity {
 
         mNameET.setText(queriedStudent.getName());
         mStudentNumberET.setText(queriedStudent.getStudentNumber());
-        mAgeET.setText(queriedStudent.getAge());
+        mAgeSpinner.setText(queriedStudent.getAge());
         mGenderET.setText(queriedStudent.getGender());
         mYearLevelET.setText(queriedStudent.getYearLevel());
         mHomeroomET.setText(queriedStudent.getHomeRoom());
@@ -80,13 +92,39 @@ public class UpdateActivity extends AppCompatActivity {
 
             }
         });
+        mBirthdayET.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog dialog = new DatePickerDialog(
+                        UpdateActivity.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDateSetListener,year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                Log.d(TAG, "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
 
-        }
+                String date = month + "/" + day + "/" + year;
+                mBirthdayET.setText(date);
+            }
+        };
+
+
+    }
 
     private void updateStudent() {
         String studentNumber = mStudentNumberET.getText().toString();
         String name = mNameET.getText().toString().trim();
-        String age = mAgeET.getText().toString().trim();
+        String age = mAgeSpinner.getText().toString().trim();
         String gender = mGenderET.getText().toString().trim();
         String yearLevel = mYearLevelET.getText().toString().trim();
         String homeRoom = mHomeroomET.getText().toString().trim();

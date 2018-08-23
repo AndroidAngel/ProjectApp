@@ -101,7 +101,7 @@ public class StudentDbHelper extends SQLiteOpenHelper {
                 student.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
                 student.setName(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)));
                 student.setStudentNumber(cursor.getString(cursor.getColumnIndex(COLUMN_STUDENT_NUMBER)));
-                student.setAge(cursor.getInt(cursor.getColumnIndex(COLUMN_AGE)));
+                student.setAge(cursor.getString(cursor.getColumnIndex(COLUMN_AGE)));
                 student.setGender(cursor.getString(cursor.getColumnIndex(COLUMN_GENDER)));
                 student.setYearLevel(cursor.getString(cursor.getColumnIndex(COLUMN_YEAR_LEVEL)));
                 student.setHomeRoom(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEROOM)));
@@ -128,7 +128,7 @@ public class StudentDbHelper extends SQLiteOpenHelper {
 
             receivedStudent.setName(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)));
             receivedStudent.setStudentNumber(cursor.getString(cursor.getColumnIndex(COLUMN_STUDENT_NUMBER)));
-            receivedStudent.setAge(cursor.getInt(cursor.getColumnIndex(COLUMN_AGE)));
+            receivedStudent.setAge(cursor.getString(cursor.getColumnIndex(COLUMN_AGE)));
             receivedStudent.setGender(cursor.getString(cursor.getColumnIndex(COLUMN_GENDER)));
             receivedStudent.setYearLevel(cursor.getString(cursor.getColumnIndex(COLUMN_YEAR_LEVEL)));
             receivedStudent.setHomeRoom(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEROOM)));
