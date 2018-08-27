@@ -5,6 +5,9 @@
     <color name="colorAccent">#cecece</color>
 
 
+    <color name="colorButton">#0277bd</color>
+
+
     <color name="colorBgWhite">#f0f2ea</color>
     <color name="colorLightGray">#a6abae</color>
     <color name="colorSwitch">#778899</color>

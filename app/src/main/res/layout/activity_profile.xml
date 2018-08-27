@@ -3,18 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
     tools:context=".ProfileActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/shape"
         android:layout_above="@+id/linear">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="25dp"
             android:scaleType="centerCrop"
+            android:background="@drawable/shape"
             android:src="@drawable/imageschoolbckground" />
 
         <LinearLayout
@@ -53,6 +58,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:fontFamily="sans-serif-smallcaps"
                         android:text="456 Days Present"
                         android:textColor="#FFFFFF"
                         android:textSize="12sp" />
@@ -90,6 +96,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:fontFamily="sans-serif-smallcaps"
                         android:text="20 Days Absent"
                         android:textColor="#FFFFFF"
                         android:textSize="12sp" />
@@ -115,11 +122,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#0000"
+                android:background="@drawable/shape"
                 android:gravity="start"
                 android:maxLength="12"
                 android:padding="16dp"
                 android:text="Name"
+                android:fontFamily="sans-serif-smallcaps"
                 android:textColor="#a2a1b8"
                 android:textSize="16sp" />
 
@@ -128,8 +136,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#0000"
+                android:background="@drawable/shape"
                 android:gravity="end"
+                android:fontFamily="sans-serif-smallcaps"
                 android:hint="Student Number"
                 android:maxLength="12"
                 android:padding="16dp"
@@ -137,11 +146,6 @@
                 android:textColorHint="#a2a1b8"
                 android:textSize="16sp" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dad8d8" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -153,11 +157,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#0000"
+                android:background="@drawable/shape"
                 android:gravity="start"
                 android:maxLength="12"
                 android:padding="16dp"
                 android:text="Section"
+                android:fontFamily="sans-serif-smallcaps"
                 android:textColor="#a2a1b8"
                 android:textSize="16sp" />
 
@@ -166,20 +171,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#0000"
+                android:background="@drawable/shape"
                 android:gravity="end"
                 android:hint="Grade"
+                android:fontFamily="sans-serif-smallcaps"
                 android:maxLength="12"
                 android:padding="16dp"
                 android:textColor="#a2a1b8"
                 android:textColorHint="#a2a1b8"
                 android:textSize="16sp" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dad8d8" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -191,11 +192,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#0000"
+                android:background="@drawable/shape"
                 android:gravity="start"
                 android:maxLength="12"
                 android:padding="16dp"
                 android:text="Age"
+                android:fontFamily="sans-serif-smallcaps"
                 android:textColor="#a2a1b8"
                 android:textSize="16sp" />
 
@@ -204,9 +206,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#0000"
+                android:background="@drawable/shape"
                 android:gravity="end"
                 android:hint="Gender"
+                android:fontFamily="sans-serif-smallcaps"
                 android:maxLength="12"
                 android:padding="16dp"
                 android:textColor="#a2a1b8"
@@ -214,10 +217,6 @@
                 android:textSize="16sp" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dad8d8" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -229,9 +228,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#0000"
+                android:background="@drawable/shape"
                 android:gravity="start"
                 android:maxLength="12"
+                android:fontFamily="sans-serif-smallcaps"
                 android:padding="16dp"
                 android:text="Birthday"
                 android:textColor="#a2a1b8"
@@ -242,25 +242,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#0000"
+                android:background="@drawable/shape"
                 android:gravity="end"
                 android:hint="Contact Number"
                 android:maxLength="12"
+                android:fontFamily="sans-serif-smallcaps"
                 android:padding="16dp"
                 android:textColor="#a2a1b8"
                 android:textColorHint="#a2a1b8"
                 android:textSize="16sp" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dad8d8" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
@@ -270,6 +266,7 @@
                 android:gravity="start"
                 android:maxLength="100"
                 android:padding="16dp"
+                android:fontFamily="sans-serif-smallcaps"
                 android:text="In case of Emergency please Notify:"
                 android:textColor="#a2a1b8"
                 android:textSize="16sp" />
@@ -279,9 +276,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#0000"
-                android:gravity="end"
+                android:background="@drawable/shape"
+                android:gravity="start"
                 android:hint="Parent Name"
+                android:fontFamily="sans-serif-smallcaps"
                 android:maxLength="100"
                 android:padding="16dp"
                 android:textColorHint="#a2a1b8"
@@ -289,20 +287,15 @@
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dad8d8" />
-
         <TextView
             android:id="@+id/addressP"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="#0000"
+            android:background="@drawable/shape"
             android:gravity="start"
+            android:fontFamily="sans-serif-smallcaps"
             android:hint="Address"
-            android:maxLength="12"
             android:padding="16dp"
             android:textColorHint="#a2a1b8"
             android:textSize="16sp" />

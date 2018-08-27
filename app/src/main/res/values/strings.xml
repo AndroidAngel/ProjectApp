@@ -34,5 +34,19 @@
 
     <string name="settings_order_by_gender_label">Gender</string>
     <string name="settings_order_by_gender_value" translatable="false">gender</string>
+    <string name="enter_student_id">Enter student Id</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_age">Enter Age</string>
+    <string name="enter_year_level">Enter Year Level</string>
+    <string name="enter_gender">Enter Gender</string>
+    <string name="enter_section">Enter Section</string>
+    <string name="enter_image_url">Enter Image Url</string>
+    <string name="in_case_of_emergency_please_notify">In case of emergency Please Notify:</string>
+    <string name="enter_parent_guardian_name">Enter Parent/Guardian Name</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="enter_student_birthday">Enter Student Birthday</string>
+    <string name="enter_address">Enter Address</string>
+    <string name="save">Save</string>
+    <string name="update">Update</string>
 
 </resources>

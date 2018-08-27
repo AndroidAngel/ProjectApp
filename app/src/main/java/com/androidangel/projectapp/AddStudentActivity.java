@@ -35,8 +35,6 @@ public class AddStudentActivity extends AppCompatActivity {
     private EditText mHomeroomET;
     private EditText mContactNo;
 
-//    private Spinner ageSpinner;
-
 
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     Button submitBtn;
@@ -45,10 +43,7 @@ public class AddStudentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_new);
-
-//        addListenerOnSpinnerItemSelection();
-//        addListenerOnButton();
+        setContentView(R.layout.activity_add);
 
         mStudentNumberET = findViewById(R.id.studentnoedit);
         mNameET = findViewById(R.id.nameedit);
@@ -97,77 +92,63 @@ public class AddStudentActivity extends AppCompatActivity {
                 mBirthdayET.setText(date);
             }
         };
-
-
             }
 
-//    private void addListenerOnButton() {
-//        ageSpinner = (Spinner)findViewById(R.id.ageSpinner);
-//    }
-//
-//    private void addListenerOnSpinnerItemSelection() {
-//        ageSpinner.setOnItemSelectedListener(new CustomOnItemSelectedListener());
-//    }
+    private void saveStudent() {
 
-    private void saveStudent(){
+        String name = mNameET.getText().toString().trim();
+        String studentNumber = mStudentNumberET.getText().toString();
+        String age = mAgeSpinner.getText().toString().trim();
+        String gender = mGenderET.getText().toString().trim();
+        String yearLevel = mYearLevelET.getText().toString().trim();
+        String homeRoom = mHomeroomET.getText().toString().trim();
+        String address = mAddressET.getText().toString().trim();
+        String parentName = mParentNameET.getText().toString().trim();
+        String contactNo = mContactNo.getText().toString().trim();
+        String birthday = mBirthdayET.getText().toString().trim();
+        String image = mImageUrlET.getText().toString().trim();
+        dbHelper = new StudentDbHelper(this);
 
-                String studentNumber = mStudentNumberET.getText().toString();
-                String name = mNameET.getText().toString().trim();
+        if (name.isEmpty()) {
+            Toast.makeText(this, "You must enter a name", Toast.LENGTH_SHORT).show();
+        }
+        if (studentNumber.isEmpty()) {
+            Toast.makeText(this, "You must enter a student number", Toast.LENGTH_SHORT).show();
+        }
+        if (age.isEmpty()) {
 
-                String age = mAgeSpinner.getText().toString().trim();
+            Toast.makeText(this, "You must enter an age", Toast.LENGTH_SHORT).show();
+        }
+        if (gender.isEmpty()) {
+            Toast.makeText(this, "You must enter a gender", Toast.LENGTH_SHORT).show();
+        }
+        if (yearLevel.isEmpty()) {
+            Toast.makeText(this, "You must enter a Grade Level", Toast.LENGTH_SHORT).show();
+        }
+        if (homeRoom.isEmpty()) {
+            Toast.makeText(this, "You must enter a Section", Toast.LENGTH_SHORT).show();
+        }
+        if (address.isEmpty()) {
+            Toast.makeText(this, "You must enter an Address", Toast.LENGTH_SHORT).show();
+        }
+        if (parentName.isEmpty()) {
+            Toast.makeText(this, "You must enter a Student parent name", Toast.LENGTH_SHORT).show();
+        }
+        if (contactNo.isEmpty()) {
+            Toast.makeText(this, "You must enter a Contact Number", Toast.LENGTH_SHORT).show();
+        }
+        if (birthday.isEmpty()) {
+            Toast.makeText(this, "You must enter a Student Birthday", Toast.LENGTH_SHORT).show();
+        }
+        if (image.isEmpty()) {
+            Toast.makeText(this, "You must enter an Image Link", Toast.LENGTH_SHORT).show();
+        }
+        Student student = new Student(name, studentNumber, age, gender, yearLevel, homeRoom,
+                address, parentName, contactNo, birthday, image);
 
-                String gender = mGenderET.getText().toString().trim();
-                String yearLevel = mYearLevelET.getText().toString().trim();
-                String homeRoom = mHomeroomET.getText().toString().trim();
-                String address = mAddressET.getText().toString().trim();
-                String parentName = mParentNameET.getText().toString().trim();
-                String contactNo = mContactNo.getText().toString().trim();
-                String birthday = mBirthdayET.getText().toString().trim();
-                String image = mImageUrlET.getText().toString().trim();
-                dbHelper = new StudentDbHelper(this);
-
-                if(name.isEmpty()){
-                    Toast.makeText(this, "You must enter a name", Toast.LENGTH_SHORT).show();
-                }
-                if(studentNumber.isEmpty()){
-                    Toast.makeText(this, "You must enter a student number", Toast.LENGTH_SHORT).show();
-                }
-                if(age.isEmpty()){
-
-                    Toast.makeText(this, "You must enter an age", Toast.LENGTH_SHORT).show();
-                }
-                if(gender.isEmpty()){
-                    Toast.makeText(this, "You must enter a gender", Toast.LENGTH_SHORT).show();
-                }
-                if(yearLevel.isEmpty()){
-                    Toast.makeText(this, "You must enter a Grade Level", Toast.LENGTH_SHORT).show();
-                }
-                if(homeRoom.isEmpty()){
-                    Toast.makeText(this, "You must enter a Section", Toast.LENGTH_SHORT).show();
-                }
-                if(address.isEmpty()){
-                    Toast.makeText(this, "You must enter an Address", Toast.LENGTH_SHORT).show();
-                }
-                if(parentName.isEmpty()){
-                    Toast.makeText(this, "You must enter a Student parent name", Toast.LENGTH_SHORT).show();
-                }
-                if(contactNo.isEmpty()){
-                    Toast.makeText(this, "You must enter a Contact Number", Toast.LENGTH_SHORT).show();
-                }
-                if(birthday.isEmpty()){
-                    Toast.makeText(this, "You must enter a Student Birthday", Toast.LENGTH_SHORT).show();
-                }
-                if(image.isEmpty()){
-                    Toast.makeText(this, "You must enter an Image Link", Toast.LENGTH_SHORT).show();
-                }
-                Student student = new Student(studentNumber, name, age, gender, yearLevel, homeRoom,
-                        address, parentName, contactNo, birthday, image);
-
-                dbHelper.saveNewStudent(student);
-
-
-
-}
+        dbHelper.saveNewStudent(student);
+        goBackHome();
+    }
     private void goBackHome(){
         startActivity(new Intent(AddStudentActivity.this, MainActivity.class));
     }

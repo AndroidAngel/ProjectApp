@@ -2,8 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_marginTop="16dp"
-    android:layout_marginBottom="16dp"
     android:layout_height="match_parent"
     tools:context=".AddStudentActivity">
     <FrameLayout
@@ -20,6 +18,9 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -30,7 +31,7 @@
 
                 <EditText
                     android:background="@drawable/shape"
-                    android:id="@+id/studentnoedit"
+                    android:id="@+id/studentnoeditupdate"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -59,7 +60,7 @@
 
                 <EditText
                     android:background="@drawable/shape"
-                    android:id="@+id/nameedit"
+                    android:id="@+id/nameeditupdate"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -116,7 +117,7 @@
 
                     <EditText
                         android:background="@drawable/shape"
-                        android:id="@+id/ageSpinner"
+                        android:id="@+id/ageedittextupdate"
                         android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
@@ -129,7 +130,7 @@
 
                     <EditText
                         android:background="@drawable/shape"
-                        android:id="@+id/yearleveledittext"
+                        android:id="@+id/yearleveledittextupdate"
                         android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
@@ -176,7 +177,7 @@
 
                     <EditText
                         android:background="@drawable/shape"
-                        android:id="@+id/genderedittext"
+                        android:id="@+id/genderedittextupdate"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:gravity="center"
@@ -189,7 +190,7 @@
 
                     <EditText
                         android:background="@drawable/shape"
-                        android:id="@+id/homeroomedittext"
+                        android:id="@+id/homeroomedittextupdate"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:gravity="center"
@@ -219,7 +220,7 @@
 
                 <EditText
                     android:background="@drawable/shape"
-                    android:id="@+id/imageurlviewedit"
+                    android:id="@+id/imageurlvieweditupdate"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="8dp"
@@ -236,7 +237,6 @@
                 android:text="@string/in_case_of_emergency_please_notify"
                 android:textStyle="bold"
                 android:gravity="start"
-                android:textColor="#696969"
                 android:fontFamily="sans-serif-smallcaps"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_width="match_parent"
@@ -260,7 +260,7 @@
 
                 <EditText
                     android:background="@drawable/shape"
-                    android:id="@+id/parentnameedittext"
+                    android:id="@+id/parentnameedittextupdate"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -290,7 +290,7 @@
 
                 <EditText
                     android:background="@drawable/shape"
-                    android:id="@+id/contactnoedittext"
+                    android:id="@+id/contactnoedittextupdate"
                     android:layout_width="0dp"
                     android:gravity="center"
                     android:layout_marginStart="8dp"
@@ -310,7 +310,7 @@
 
                 <TextView
                     android:background="@drawable/shape"
-                    android:id="@+id/birthdayedittext"
+                    android:id="@+id/birthdayedittextupdate"
                     android:layout_width="0dp"
                     android:layout_marginStart="4dp"
                     android:layout_height="match_parent"
@@ -340,7 +340,7 @@
 
                 <EditText
                     android:background="@drawable/shape"
-                    android:id="@+id/addressedittext"
+                    android:id="@+id/addressedittextupdate"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -352,11 +352,12 @@
             </LinearLayout>
 
             <Button
-                android:text="@string/save"
-                android:id="@+id/submit"
+                android:text="@string/update"
+                android:id="@+id/submitupdate"
                 android:layout_marginTop="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/button_save"
                 android:textColor="@android:color/white"
                 android:fontFamily="sans-serif-smallcaps"
@@ -365,7 +366,7 @@
                 android:layout_height="wrap_content" />
 
 
-    </LinearLayout>
+        </LinearLayout>
     </FrameLayout>
 </RelativeLayout>
 

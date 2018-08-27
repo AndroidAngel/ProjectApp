@@ -132,7 +132,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToProfileActivity();
+                goToProfileActivity(student.getId());
             }
         });
         holder.toggleBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -147,8 +147,9 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
 
     }
 
-    private void goToProfileActivity() {
+    private void goToProfileActivity(long studentId) {
         Intent goToProfile = new Intent(mContext, ProfileActivity.class);
+        goToProfile.putExtra("USER_ID", studentId);
         mContext.startActivity(goToProfile);
     }
 

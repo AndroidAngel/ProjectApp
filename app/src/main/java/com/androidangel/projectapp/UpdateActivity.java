@@ -45,7 +45,7 @@ public class UpdateActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update);
+        setContentView(R.layout.activity_update_student);
 
 
         mNameET = findViewById(R.id.nameeditupdate);
@@ -167,7 +167,7 @@ public class UpdateActivity extends AppCompatActivity {
         if(image.isEmpty()){
             Toast.makeText(this, "You must enter an Image Link", Toast.LENGTH_SHORT).show();
         }
-        Student updatedStudent = new Student(studentNumber, name, age, gender, yearLevel, homeRoom,
+        Student updatedStudent = new Student(name, studentNumber, age, gender, yearLevel, homeRoom,
                 address, parentName, contactNo, birthday, image);
 
         dbHelper.updateStudentRecord(receivedStudentId, this, updatedStudent);
