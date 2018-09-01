@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +28,6 @@ public class UpdateActivity extends AppCompatActivity {
     private EditText mNameET;
     private EditText mStudentNumberET;
     private EditText mAgeSpinner;
-    private EditText mGenderET;
     private EditText mAddressET;
     private TextView mBirthdayET;
     private EditText mYearLevelET;
@@ -36,6 +37,9 @@ public class UpdateActivity extends AppCompatActivity {
     private EditText mContactNo;
 
     private Button mUpdateBtn;
+
+    private RadioGroup mRadioGroupGenderUpdate;
+    private RadioButton mRadioButtonGenderUpdate;
 
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
@@ -51,7 +55,7 @@ public class UpdateActivity extends AppCompatActivity {
         mNameET = findViewById(R.id.nameeditupdate);
         mStudentNumberET = findViewById(R.id.studentnoeditupdate);
         mAgeSpinner = findViewById(R.id.ageedittextupdate);
-        mGenderET = findViewById(R.id.genderedittextupdate);
+
         mYearLevelET = findViewById(R.id.yearleveledittextupdate);
         mHomeroomET = findViewById(R.id.homeroomedittextupdate);
         mAddressET = findViewById(R.id.addressedittextupdate);
@@ -61,6 +65,8 @@ public class UpdateActivity extends AppCompatActivity {
         mImageUrlET = findViewById(R.id.imageurlvieweditupdate);
 
         mUpdateBtn = findViewById(R.id.submitupdate);
+
+        addListenerOnButtonUpdate();
 
         dbHelper = new StudentDbHelper(this);
 
@@ -75,7 +81,6 @@ public class UpdateActivity extends AppCompatActivity {
         mNameET.setText(queriedStudent.getName());
         mStudentNumberET.setText(queriedStudent.getStudentNumber());
         mAgeSpinner.setText(queriedStudent.getAge());
-        mGenderET.setText(queriedStudent.getGender());
         mYearLevelET.setText(queriedStudent.getYearLevel());
         mHomeroomET.setText(queriedStudent.getHomeRoom());
         mAddressET.setText(queriedStudent.getAddress());
@@ -88,6 +93,9 @@ public class UpdateActivity extends AppCompatActivity {
         mUpdateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                int selectedId = mRadioGroupGenderUpdate.getCheckedRadioButtonId();
+                mRadioButtonGenderUpdate = findViewById(selectedId);
                 updateStudent();
 
             }
@@ -121,11 +129,16 @@ public class UpdateActivity extends AppCompatActivity {
 
     }
 
+    private void addListenerOnButtonUpdate() {
+
+        mRadioGroupGenderUpdate = findViewById(R.id.radiogroupGenderUpdate);
+    }
+
     private void updateStudent() {
         String studentNumber = mStudentNumberET.getText().toString();
         String name = mNameET.getText().toString().trim();
         String age = mAgeSpinner.getText().toString().trim();
-        String gender = mGenderET.getText().toString().trim();
+        String gender = mRadioButtonGenderUpdate.getText().toString().trim();
         String yearLevel = mYearLevelET.getText().toString().trim();
         String homeRoom = mHomeroomET.getText().toString().trim();
         String address = mAddressET.getText().toString().trim();

@@ -2,13 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_marginTop="16dp"
-    android:layout_marginBottom="16dp"
     android:layout_height="match_parent"
     tools:context=".AddStudentActivity">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,6 +20,9 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -36,7 +39,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="8dp"
                     android:layout_weight="7"
-                    android:fontFamily="sans-serif-smallcaps"
+                    android:fontFamily="monospace"
                     android:hint="@string/enter_student_id"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
@@ -65,7 +68,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="8dp"
                     android:layout_weight="7"
-                    android:fontFamily="sans-serif-smallcaps"
+                    android:fontFamily="monospace"
                     android:hint="@string/enter_name"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
@@ -122,19 +125,19 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:layout_marginBottom="8dp"
-                        android:fontFamily="sans-serif-smallcaps"
+                        android:fontFamily="monospace"
                         android:hint="@string/enter_age"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         tools:ignore="NestedWeights" />
 
                     <EditText
-                        android:background="@drawable/shape"
                         android:id="@+id/yearleveledittext"
-                        android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:fontFamily="sans-serif-smallcaps"
                         android:layout_weight="1"
+                        android:background="@drawable/shape"
+                        android:fontFamily="monospace"
+                        android:gravity="center"
                         android:hint="@string/enter_year_level"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -173,19 +176,36 @@
                     android:layout_weight="3"
                     android:orientation="vertical">
 
-
-                    <EditText
-                        android:background="@drawable/shape"
-                        android:id="@+id/genderedittext"
+                    <RadioGroup
+                        android:id="@+id/radiogroupGender"
                         android:layout_width="match_parent"
+                        android:background="@drawable/shape"
                         android:layout_height="0dp"
-                        android:gravity="center"
-                        android:layout_marginBottom="8dp"
                         android:layout_weight="1"
-                        tools:ignore="NestedWeights"
-                        android:fontFamily="sans-serif-smallcaps"
-                        android:hint="@string/enter_gender"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/female_radioBtn"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:fontFamily="monospace"
+                            android:layout_height="match_parent"
+                            android:textSize="12sp"
+                            android:text="@string/female" />
+
+                        <RadioButton
+                            android:id="@+id/male_radioBtn"
+                            android:fontFamily="monospace"
+                            android:textSize="12sp"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:text="@string/male" />
+
+                    </RadioGroup>
 
                     <EditText
                         android:background="@drawable/shape"
@@ -194,7 +214,7 @@
                         android:layout_height="0dp"
                         android:gravity="center"
                         android:layout_weight="1"
-                        android:fontFamily="sans-serif-smallcaps"
+                        android:fontFamily="monospace"
                         android:hint="@string/enter_section"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -225,7 +245,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_weight="7"
                     android:gravity="center"
-                    android:fontFamily="sans-serif-smallcaps"
+                    android:fontFamily="monospace"
                     android:hint="@string/enter_image_url"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
@@ -266,7 +286,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="8dp"
                     android:layout_weight="7"
-                    android:fontFamily="sans-serif-smallcaps"
+                    android:fontFamily="monospace"
                     android:hint="@string/enter_parent_guardian_name"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
@@ -296,7 +316,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_height="match_parent"
                     android:layout_weight="21"
-                    android:fontFamily="sans-serif-smallcaps"
+                    android:fontFamily="monospace"
                     android:hint="@string/enter_mobile_number"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -316,7 +336,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="21"
                     android:gravity="center"
-                    android:fontFamily="sans-serif-smallcaps"
+                    android:fontFamily="monospace"
                     android:text="@string/enter_student_birthday"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -346,7 +366,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="8dp"
                     android:layout_weight="7"
-                    android:fontFamily="sans-serif-smallcaps"
+                    android:fontFamily="monospace"
                     android:hint="@string/enter_address"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
@@ -357,6 +377,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/button_save"
                 android:textColor="@android:color/white"
                 android:fontFamily="sans-serif-smallcaps"

@@ -44,6 +44,8 @@ public class ProfileActivity extends AppCompatActivity {
     private Context mContext;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,5 +73,11 @@ public class ProfileActivity extends AppCompatActivity {
         Picasso.with(mContext).load(queryStudent.getImage()).into(profilePTV);
 
 
+
     }
+
+
+
+
+
 }

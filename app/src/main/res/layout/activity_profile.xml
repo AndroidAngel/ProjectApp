@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     android:layout_marginTop="16dp"
     android:layout_marginBottom="16dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginStart="8dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginStart="16dp"
     tools:context=".ProfileActivity">
 
     <FrameLayout
@@ -54,14 +54,15 @@
 
                     <TextView
                         android:id="@+id/dayspresentP"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:background="@drawable/border_profile"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:text="456 Days Present"
-                        android:textColor="#FFFFFF"
-                        android:textSize="12sp" />
+                        android:gravity="center"
+                        android:text="0 Days Present"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <ImageView
@@ -92,94 +93,177 @@
                     <TextView
                         android:id="@+id/daysabsentP"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:background="@drawable/border_profile"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:text="20 Days Absent"
-                        android:textColor="#FFFFFF"
-                        android:textSize="12sp" />
+                        android:gravity="center"
+                        android:text="0 Days Absent"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
     </FrameLayout>
 
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="4dp"
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:orientation="horizontal"
+           android:layout_height="wrap_content">
+
+           <TextView
+               android:text="Name:"
+               android:layout_weight="1"
+               android:fontFamily="monospace"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+
+           <TextView
+               android:text="Student No:"
+               android:layout_weight="1"
+               android:fontFamily="monospace"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+
+
+       </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+
+
             <TextView
                 android:id="@+id/nameP"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="monospace"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/border_profile"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:textColor="#000000"
                 android:layout_weight="1"
-                android:background="@drawable/shape"
-                android:gravity="start"
-                android:maxLength="12"
+                android:hint="Name"
                 android:padding="16dp"
-                android:text="Name"
-                android:fontFamily="sans-serif-smallcaps"
-                android:textColor="#a2a1b8"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/studentnoP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/border_profile"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="monospace"
+                android:layout_marginEnd="4dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:textColor="#000000"
                 android:layout_weight="1"
-                android:background="@drawable/shape"
-                android:gravity="end"
-                android:fontFamily="sans-serif-smallcaps"
                 android:hint="Student Number"
-                android:maxLength="12"
                 android:padding="16dp"
-                android:textColor="#a2a1b8"
-                android:textColorHint="#a2a1b8"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Section:"
+                android:layout_weight="1"
+                android:fontFamily="monospace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:text="Grade:"
+                android:layout_weight="1"
+                android:fontFamily="monospace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+
             <TextView
                 android:id="@+id/sectionP"
+                android:background="@drawable/border_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="monospace"
+                android:layout_marginEnd="4dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:textColor="#000000"
                 android:layout_weight="1"
-                android:background="@drawable/shape"
-                android:gravity="start"
-                android:maxLength="12"
+                android:hint="Section"
                 android:padding="16dp"
-                android:text="Section"
-                android:fontFamily="sans-serif-smallcaps"
-                android:textColor="#a2a1b8"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/gradeP"
+                android:background="@drawable/border_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="monospace"
+                android:layout_marginEnd="4dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:textColor="#000000"
                 android:layout_weight="1"
-                android:background="@drawable/shape"
-                android:gravity="end"
                 android:hint="Grade"
-                android:fontFamily="sans-serif-smallcaps"
-                android:maxLength="12"
                 android:padding="16dp"
-                android:textColor="#a2a1b8"
-                android:textColorHint="#a2a1b8"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Age:"
+                android:layout_weight="1"
+                android:fontFamily="monospace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:text="Gender:"
+                android:layout_weight="1"
+                android:fontFamily="monospace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -189,32 +273,59 @@
 
             <TextView
                 android:id="@+id/ageP"
+                android:background="@drawable/border_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="monospace"
+                android:layout_marginEnd="4dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:textColor="#000000"
                 android:layout_weight="1"
-                android:background="@drawable/shape"
-                android:gravity="start"
-                android:maxLength="12"
+                android:hint="Age"
                 android:padding="16dp"
-                android:text="Age"
-                android:fontFamily="sans-serif-smallcaps"
-                android:textColor="#a2a1b8"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/genderP"
+                android:background="@drawable/border_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="monospace"
+                android:layout_marginEnd="4dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:textColor="#000000"
                 android:layout_weight="1"
-                android:background="@drawable/shape"
-                android:gravity="end"
                 android:hint="Gender"
-                android:fontFamily="sans-serif-smallcaps"
-                android:maxLength="12"
                 android:padding="16dp"
-                android:textColor="#a2a1b8"
-                android:textColorHint="#a2a1b8"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Birthday:"
+                android:layout_weight="1"
+                android:fontFamily="monospace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:text="Contact Number:"
+                android:layout_weight="1"
+                android:fontFamily="monospace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
         </LinearLayout>
 
 
@@ -225,32 +336,37 @@
 
             <TextView
                 android:id="@+id/birthdayP"
+                android:background="@drawable/border_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="monospace"
+                android:layout_marginEnd="4dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:textColor="#000000"
                 android:layout_weight="1"
-                android:background="@drawable/shape"
-                android:gravity="start"
-                android:maxLength="12"
-                android:fontFamily="sans-serif-smallcaps"
+                android:hint="Birthday"
                 android:padding="16dp"
-                android:text="Birthday"
-                android:textColor="#a2a1b8"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/contactnoP"
+                android:background="@drawable/border_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="monospace"
+                android:layout_marginEnd="4dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:textColor="#000000"
                 android:layout_weight="1"
-                android:background="@drawable/shape"
-                android:gravity="end"
                 android:hint="Contact Number"
-                android:maxLength="12"
-                android:fontFamily="sans-serif-smallcaps"
                 android:padding="16dp"
-                android:textColor="#a2a1b8"
-                android:textColorHint="#a2a1b8"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -262,43 +378,63 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#0000"
                 android:gravity="start"
                 android:maxLength="100"
                 android:padding="16dp"
-                android:fontFamily="sans-serif-smallcaps"
+                android:fontFamily="monospace"
                 android:text="In case of Emergency please Notify:"
-                android:textColor="#a2a1b8"
+                android:textColor="#8B0000"
                 android:textSize="16sp" />
+
+                <TextView
+                    android:text="Parent/Guardian Name:"
+                    android:fontFamily="monospace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/parentnameP"
+                android:background="@drawable/border_profile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="monospace"
+                android:layout_marginEnd="4dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:textColor="#000"
                 android:layout_weight="1"
-                android:background="@drawable/shape"
-                android:gravity="start"
-                android:hint="Parent Name"
-                android:fontFamily="sans-serif-smallcaps"
-                android:maxLength="100"
+                android:hint="Parent/Guardian Name"
                 android:padding="16dp"
-                android:textColorHint="#a2a1b8"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 
+
+        <TextView
+            android:text="Address:"
+            android:fontFamily="monospace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
         <TextView
             android:id="@+id/addressP"
+            android:background="@drawable/border_profile"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="monospace"
+            android:layout_marginEnd="4dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:textColor="#000000"
             android:layout_weight="1"
-            android:background="@drawable/shape"
-            android:gravity="start"
-            android:fontFamily="sans-serif-smallcaps"
             android:hint="Address"
             android:padding="16dp"
-            android:textColorHint="#a2a1b8"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
     </LinearLayout>
 

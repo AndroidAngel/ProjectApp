@@ -1,21 +1,15 @@
-package com.androidangel.projectapp;
-
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.Toast;
-
-public class CustomOnItemSelectedListener implements OnItemSelectedListener {
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(parent.getContext(),
-                "OnItemSelectedListener : " + parent.getItemAtPosition(position).toString(),
-                Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> arg0) {
-
-    }
-}
+//package com.androidangel.projectapp;
+//
+//import android.widget.CompoundButton;
+//
+//public class CustomOnItemSelectedListener implements CompoundButton.OnCheckedChangeListener{
+//    @Override
+//    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//        if (isChecked){
+//            if (buttonView.getId() == R.id.female_radioBtn){
+//                male
+//
+//            }
+//        }
+//    }
+//}

@@ -1,10 +1,8 @@
 package com.androidangel.projectapp;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -32,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         //initialize the variables
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
@@ -42,10 +41,7 @@ public class MainActivity extends AppCompatActivity {
         //populate recyclerview
         populateRecyclerView(filter);
 
-      //Todo: MAKE THE SETTINGS PREFERENCES FOR ORDER BY
 
- SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-       String orderBy = sharedPreferences.getString(getString(R.string.settings_order_by_key), getString(R.string.settings_order_by_default));
  }
 
     private void populateRecyclerView(String filter){

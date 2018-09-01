@@ -48,5 +48,9 @@
     <string name="enter_address">Enter Address</string>
     <string name="save">Save</string>
     <string name="update">Update</string>
+    <string name="absent">ABSENT</string>
+    <string name="present">PRESENT</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
 
 </resources>

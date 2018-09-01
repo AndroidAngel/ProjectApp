@@ -30,6 +30,7 @@ public class StudentDbHelper extends SQLiteOpenHelper {
     public static final String COLUMN_CONTACT_NO = "contactNo";
     public static final String COLUMN_ADDRESS = "address";
     public static final String COLUMN_IMAGE = "image";
+//    public static final String COLUMN_PRESENT_DAYS = "presentDays";
 
 
     public StudentDbHelper(Context context) {
@@ -46,10 +47,11 @@ public class StudentDbHelper extends SQLiteOpenHelper {
                 COLUMN_AGE + " TEXT NOT NULL, " +
                 COLUMN_HOMEROOM + " TEXT NOT NULL, " +
                 COLUMN_BIRTHDAY + " TEXT NOT NULL, " +
-                COLUMN_GENDER + " TEXT NOT NULL, " +
+                COLUMN_GENDER + " TEXT," +
                 COLUMN_PARENT_NAME + " TEXT NOT NULL, " +
                 COLUMN_CONTACT_NO + " TEXT NOT NULL, " +
                 COLUMN_ADDRESS + " TEXT NOT NULL, " +
+//                COLUMN_PRESENT_DAYS + " TEXT NOT NULL, " +
                 COLUMN_IMAGE + " BLOB NOT NULL);"
         );
     }
@@ -74,12 +76,29 @@ public class StudentDbHelper extends SQLiteOpenHelper {
             values.put(COLUMN_PARENT_NAME, student.getParentName());
             values.put(COLUMN_CONTACT_NO, student.getContactNo());
             values.put(COLUMN_BIRTHDAY, student.getBirthday());
+//            values.put(COLUMN_PRESENT_DAYS, student.getPresentDays());
             values.put(COLUMN_IMAGE, student.getImage());
 
             // insert
             db.insert(TABLE_NAME,null, values);
             db.close();
         }
+//    Date date = new Date();
+//    ArrayList daysPresent = new ArrayList<Date>();
+//        daysPresent.add(date);
+//        Log.d("ARRAYLIST----", "days present");
+//
+//    StudentAdapter adapter = new StudentAdapter(daysPresent);
+
+
+//
+//
+//    public List<Date> presentDays(){
+//        Date date = new Date();
+//        List<Date> presentDays = new L
+//
+//
+//        }
 
 
     public List<Student> studentList(String filter) {
@@ -117,6 +136,7 @@ public class StudentDbHelper extends SQLiteOpenHelper {
 
         return studentLinkedList;
     }
+
     /**Query only 1 record**/
     public Student getStudent(long id){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -136,6 +156,7 @@ public class StudentDbHelper extends SQLiteOpenHelper {
             receivedStudent.setParentName(cursor.getString(cursor.getColumnIndex(COLUMN_PARENT_NAME)));
             receivedStudent.setContactNo(cursor.getString(cursor.getColumnIndex(COLUMN_CONTACT_NO)));
             receivedStudent.setBirthday(cursor.getString(cursor.getColumnIndex(COLUMN_BIRTHDAY)));
+//            receivedStudent.setPresentDays(cursor.getString(cursor.getColumnIndex(COLUMN_PRESENT_DAYS)));
             receivedStudent.setImage(cursor.getString(cursor.getColumnIndex(COLUMN_IMAGE)));
         }
         return receivedStudent;
@@ -158,7 +179,7 @@ public class StudentDbHelper extends SQLiteOpenHelper {
      **/
     public void updateStudentRecord(long studentId, Context context, Student updatedStudent) {
         SQLiteDatabase db = this.getWritableDatabase();
-        //you can use the constants above instead of typing the column names
+
         db.execSQL("UPDATE  " + TABLE_NAME + " SET name ='"
                 + updatedStudent.getName()
                 + "', studentNumber ='" + updatedStudent.getStudentNumber()
@@ -172,6 +193,7 @@ public class StudentDbHelper extends SQLiteOpenHelper {
                 + "', contactNo ='" + updatedStudent.getContactNo()
                 + "', birthday ='" + updatedStudent.getBirthday()
                 + "', image ='" + updatedStudent.getImage()
+//                + "', presentDays ='" + updatedStudent.getPresentDays()
                 + "'  WHERE _id='" + studentId + "'");
         Toast.makeText(context, "Updated successfully.", Toast.LENGTH_SHORT).show();
 

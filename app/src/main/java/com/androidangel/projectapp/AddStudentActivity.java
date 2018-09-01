@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +28,6 @@ public class AddStudentActivity extends AppCompatActivity {
     private EditText mNameET;
     private EditText mStudentNumberET;
     private EditText mAgeSpinner;
-    private EditText mGenderET;
     private EditText mAddressET;
     private TextView mBirthdayET;
     private EditText mYearLevelET;
@@ -34,6 +35,10 @@ public class AddStudentActivity extends AppCompatActivity {
     private EditText mImageUrlET;
     private EditText mHomeroomET;
     private EditText mContactNo;
+
+    private RadioGroup mRadioGroupGender;
+    private RadioButton mRadioButtonGender;
+
 
 
     private DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -48,7 +53,7 @@ public class AddStudentActivity extends AppCompatActivity {
         mStudentNumberET = findViewById(R.id.studentnoedit);
         mNameET = findViewById(R.id.nameedit);
         mAgeSpinner = findViewById(R.id.ageSpinner);
-        mGenderET = findViewById(R.id.genderedittext);
+
         mYearLevelET = findViewById(R.id.yearleveledittext);
         mHomeroomET = findViewById(R.id.homeroomedittext);
         mAddressET = findViewById(R.id.addressedittext);
@@ -58,10 +63,17 @@ public class AddStudentActivity extends AppCompatActivity {
         mImageUrlET = findViewById(R.id.imageurlviewedit);
         submitBtn = findViewById(R.id.submit);
 
+        addListenerOnButton();
+
+
+
         dbHelper = new StudentDbHelper(this);
                 submitBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
+                        int selectedId = mRadioGroupGender.getCheckedRadioButtonId();
+                        mRadioButtonGender = findViewById(selectedId);
                         //call the save student method
                         saveStudent();
                     }
@@ -94,12 +106,20 @@ public class AddStudentActivity extends AppCompatActivity {
         };
             }
 
+    private void addListenerOnButton() {
+
+        mRadioGroupGender = findViewById(R.id.radiogroupGender);
+
+
+    }
+
+
     private void saveStudent() {
 
         String name = mNameET.getText().toString().trim();
         String studentNumber = mStudentNumberET.getText().toString();
         String age = mAgeSpinner.getText().toString().trim();
-        String gender = mGenderET.getText().toString().trim();
+        String gender = mRadioButtonGender.getText().toString().trim();
         String yearLevel = mYearLevelET.getText().toString().trim();
         String homeRoom = mHomeroomET.getText().toString().trim();
         String address = mAddressET.getText().toString().trim();

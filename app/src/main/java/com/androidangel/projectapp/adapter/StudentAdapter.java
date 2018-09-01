@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -28,17 +27,17 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
     private Context mContext;
     private RecyclerView mRecyclerV;
 
-
     public StudentAdapter(List<Student> studentArrayList) {
         this.studentArrayList = studentArrayList;
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView studentNoTV, nameTv;
         public ImageView studentImageImgV;
+        public ToggleButton presentBtn;
 
-        public ToggleButton toggleBtn;
 
         public View layout;
 
@@ -48,9 +47,13 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
             studentNoTV = v.findViewById(R.id.studentNoList);
             nameTv = v.findViewById(R.id.namelist);
             studentImageImgV = v.findViewById(R.id.imagelist);
-            toggleBtn = v.findViewById(R.id.toggleBtn);
+            presentBtn = v.findViewById(R.id.toggleBtn);
+
+
         }
+
     }
+
 
     public void add(int position, Student student){
         studentArrayList.add(position, student);
@@ -86,6 +89,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
         final Student student = studentArrayList.get(position);
         holder.studentNoTV.setText("StudentNo : " + student.getStudentNumber());
         holder.nameTv.setText("Lastname : " + student.getName());
+        holder.presentBtn.getTextOn().length();
 
         Picasso.with(mContext).load(student.getImage()).into(holder.studentImageImgV);
 
@@ -135,17 +139,21 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
                 goToProfileActivity(student.getId());
             }
         });
-        holder.toggleBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-
-                }else {
-                }
-            }
-        });
+//        holder.presentBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked){
+//                    countClick = countClick + 1;{
+//                        Log.d("TOGGLE COUNTED", "attendance counted" + countClick);
+//                    }
+//                }
+//            }
+//        });
 
     }
+
+
+
 
     private void goToProfileActivity(long studentId) {
         Intent goToProfile = new Intent(mContext, ProfileActivity.class);
@@ -163,5 +171,9 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
     public int getItemCount() {
         return studentArrayList.size();
     }
+
+
+
+
 }
 
