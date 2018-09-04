@@ -30,18 +30,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        //initialize the variables
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
-        // use a linear layout manager
+
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         //populate recyclerview
         populateRecyclerView(filter);
-
-
  }
 
     private void populateRecyclerView(String filter){
@@ -84,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
         switch (item.getItemId()) {
             case R.id.addMenu:
                 goToAddUserActivity();
@@ -98,8 +93,6 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
     private void goToAddUserActivity(){
         Intent intent = new Intent(MainActivity.this, AddStudentActivity.class);
         startActivity(intent);

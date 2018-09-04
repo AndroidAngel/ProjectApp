@@ -9,9 +9,6 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity {
-
-    //Todo: PUT ARROW BACK TO THE MAIN LAYOUT/ACTIVITY
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

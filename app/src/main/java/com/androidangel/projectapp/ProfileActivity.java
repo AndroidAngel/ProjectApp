@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.androidangel.projectapp.data.Student;
+import com.androidangel.projectapp.model.Student;
 import com.androidangel.projectapp.database.StudentDbHelper;
 import com.squareup.picasso.Picasso;
 

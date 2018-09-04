@@ -5,9 +5,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -15,7 +17,7 @@ import android.widget.ToggleButton;
 import com.androidangel.projectapp.ProfileActivity;
 import com.androidangel.projectapp.R;
 import com.androidangel.projectapp.UpdateActivity;
-import com.androidangel.projectapp.data.Student;
+import com.androidangel.projectapp.model.Student;
 import com.androidangel.projectapp.database.StudentDbHelper;
 import com.squareup.picasso.Picasso;
 
@@ -27,19 +29,15 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
     private Context mContext;
     private RecyclerView mRecyclerV;
 
-    private static String LIST_SEPARATOR = "__,__";
-
     public StudentAdapter(List<Student> studentArrayList) {
         this.studentArrayList = studentArrayList;
 
     }
-
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView studentNoTV, nameTv;
         public ImageView studentImageImgV;
         public ToggleButton presentBtn;
-
 
         public View layout;
 
@@ -50,32 +48,27 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
             nameTv = v.findViewById(R.id.namelist);
             studentImageImgV = v.findViewById(R.id.imagelist);
             presentBtn = v.findViewById(R.id.toggleBtn);
-
-
         }
 
     }
-
-
-    public void add(int position, Student student){
+    public void add(int position, Student student) {
         studentArrayList.add(position, student);
         notifyItemInserted(position);
     }
-    public void remove(int position){
+
+    public void remove(int position) {
         studentArrayList.remove(position);
         notifyItemRemoved(position);
     }
 
-
-
-    public StudentAdapter(List<Student> myStudent, Context context, RecyclerView recyclerView){
+    public StudentAdapter(List<Student> myStudent, Context context, RecyclerView recyclerView) {
         studentArrayList = myStudent;
         this.mContext = context;
         mRecyclerV = recyclerView;
     }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
 
         LayoutInflater inflater = LayoutInflater.from(
                 parent.getContext());
@@ -84,6 +77,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
         return vh;
 
     }
+
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
@@ -91,10 +85,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
         final Student student = studentArrayList.get(position);
         holder.studentNoTV.setText("StudentNo : " + student.getStudentNumber());
         holder.nameTv.setText("Lastname : " + student.getName());
-        holder.presentBtn.getTextOn().length();
-
         Picasso.with(mContext).load(student.getImage()).into(holder.studentImageImgV);
-
 
         holder.layout.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -141,9 +132,18 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
                 goToProfileActivity(student.getId());
             }
         });
+        holder.presentBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
 
+                    Log.i("TOGGLE----", "IS CHECKED ON");
+                } else {
+                    Log.i("TOGGLE----", "OFF");
+                }
+            }
+        });
     }
-
     private void goToProfileActivity(long studentId) {
         Intent goToProfile = new Intent(mContext, ProfileActivity.class);
         goToProfile.putExtra("USER_ID", studentId);
@@ -160,9 +160,5 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
     public int getItemCount() {
         return studentArrayList.size();
     }
-
-
-
-
 }
 

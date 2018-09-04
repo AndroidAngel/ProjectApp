@@ -16,7 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.androidangel.projectapp.data.Student;
+import com.androidangel.projectapp.model.Student;
 import com.androidangel.projectapp.database.StudentDbHelper;
 
 import java.util.Calendar;
@@ -180,9 +180,7 @@ public class UpdateActivity extends AppCompatActivity {
         if(image.isEmpty()){
             Toast.makeText(this, "You must enter an Image Link", Toast.LENGTH_SHORT).show();
         }
-        Student updatedStudent = new Student(name, studentNumber, age, gender, yearLevel, homeRoom,
-                address, parentName, contactNo, birthday, image);
-
+        Student updatedStudent = new Student();
         dbHelper.updateStudentRecord(receivedStudentId, this, updatedStudent);
 
         goBackHome();

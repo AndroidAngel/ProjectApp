@@ -16,7 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.androidangel.projectapp.data.Student;
+import com.androidangel.projectapp.model.Student;
 import com.androidangel.projectapp.database.StudentDbHelper;
 
 import java.util.Calendar;
@@ -25,6 +25,8 @@ public class AddStudentActivity extends AppCompatActivity {
 
 
     private static final String TAG = "AddStudentActivity";
+    Button submitBtn;
+    StudentDbHelper dbHelper;
     private EditText mNameET;
     private EditText mStudentNumberET;
     private EditText mAgeSpinner;
@@ -35,15 +37,9 @@ public class AddStudentActivity extends AppCompatActivity {
     private EditText mImageUrlET;
     private EditText mHomeroomET;
     private EditText mContactNo;
-
     private RadioGroup mRadioGroupGender;
     private RadioButton mRadioButtonGender;
-
-
-
     private DatePickerDialog.OnDateSetListener mDateSetListener;
-    Button submitBtn;
-    StudentDbHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,33 +62,32 @@ public class AddStudentActivity extends AppCompatActivity {
         addListenerOnButton();
 
 
-
         dbHelper = new StudentDbHelper(this);
-                submitBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+        submitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-                        int selectedId = mRadioGroupGender.getCheckedRadioButtonId();
-                        mRadioButtonGender = findViewById(selectedId);
-                        //call the save student method
-                        saveStudent();
-                    }
-                });
-         mBirthdayET.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-                 Calendar cal = Calendar.getInstance();
-                 int year = cal.get(Calendar.YEAR);
-                 int month = cal.get(Calendar.MONTH);
-                 int day = cal.get(Calendar.DAY_OF_MONTH);
-                 DatePickerDialog dialog = new DatePickerDialog(
-                         AddStudentActivity.this,
-                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                         mDateSetListener,year,month,day);
-                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                 dialog.show();
-             }
-         });
+                int selectedId = mRadioGroupGender.getCheckedRadioButtonId();
+                mRadioButtonGender = findViewById(selectedId);
+                //call the save student method
+                saveStudent();
+            }
+        });
+        mBirthdayET.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog dialog = new DatePickerDialog(
+                        AddStudentActivity.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDateSetListener, year, month, day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
@@ -104,7 +99,7 @@ public class AddStudentActivity extends AppCompatActivity {
                 mBirthdayET.setText(date);
             }
         };
-            }
+    }
 
     private void addListenerOnButton() {
 
@@ -163,13 +158,13 @@ public class AddStudentActivity extends AppCompatActivity {
         if (image.isEmpty()) {
             Toast.makeText(this, "You must enter an Image Link", Toast.LENGTH_SHORT).show();
         }
-        Student student = new Student(name, studentNumber, age, gender, yearLevel, homeRoom,
-                address, parentName, contactNo, birthday, image);
 
+        Student student = new Student();
         dbHelper.saveNewStudent(student);
         goBackHome();
     }
-    private void goBackHome(){
+
+    private void goBackHome() {
         startActivity(new Intent(AddStudentActivity.this, MainActivity.class));
     }
 }

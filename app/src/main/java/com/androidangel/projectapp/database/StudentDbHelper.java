@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
-import com.androidangel.projectapp.data.Student;
+import com.androidangel.projectapp.model.Student;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class StudentDbHelper extends SQLiteOpenHelper {
     public static final String COLUMN_CONTACT_NO = "contactNo";
     public static final String COLUMN_ADDRESS = "address";
     public static final String COLUMN_IMAGE = "image";
-    public static final String COLUMN_PRESENT_DAY = "presentDay";
+//    public static final String COLUMN_PRESENT_DAY = "presentDay";
 
 
     public StudentDbHelper(Context context) {
@@ -52,7 +52,7 @@ public class StudentDbHelper extends SQLiteOpenHelper {
                 COLUMN_PARENT_NAME + " TEXT NOT NULL, " +
                 COLUMN_CONTACT_NO + " TEXT NOT NULL, " +
                 COLUMN_ADDRESS + " TEXT NOT NULL, " +
-                COLUMN_PRESENT_DAY + " TEXT," +
+//                COLUMN_PRESENT_DAY + " TEXT," +
                 COLUMN_IMAGE + " BLOB NOT NULL);"
         );
     }
@@ -77,7 +77,7 @@ public class StudentDbHelper extends SQLiteOpenHelper {
             values.put(COLUMN_PARENT_NAME, student.getParentName());
             values.put(COLUMN_CONTACT_NO, student.getContactNo());
             values.put(COLUMN_BIRTHDAY, student.getBirthday());
-            values.put(COLUMN_PRESENT_DAY, student.getPresentDay());
+//            values.put(COLUMN_PRESENT_DAY, student.getPresentDay());
             values.put(COLUMN_IMAGE, student.getImage());
 
             // insert
@@ -113,13 +113,11 @@ public class StudentDbHelper extends SQLiteOpenHelper {
                 student.setParentName(cursor.getString(cursor.getColumnIndex(COLUMN_PARENT_NAME)));
                 student.setContactNo(cursor.getString(cursor.getColumnIndex(COLUMN_CONTACT_NO)));
                 student.setBirthday(cursor.getString(cursor.getColumnIndex(COLUMN_BIRTHDAY)));
-                student.setPresentDay(cursor.getString(cursor.getColumnIndex(COLUMN_PRESENT_DAY)));
+//                student.setPresentDay(cursor.getString(cursor.getColumnIndex(COLUMN_PRESENT_DAY)));
                 student.setImage(cursor.getString(cursor.getColumnIndex(COLUMN_IMAGE)));
                 studentLinkedList.add(student);
             } while (cursor.moveToNext());
         }
-
-
         return studentLinkedList;
     }
 
@@ -142,7 +140,7 @@ public class StudentDbHelper extends SQLiteOpenHelper {
             receivedStudent.setParentName(cursor.getString(cursor.getColumnIndex(COLUMN_PARENT_NAME)));
             receivedStudent.setContactNo(cursor.getString(cursor.getColumnIndex(COLUMN_CONTACT_NO)));
             receivedStudent.setBirthday(cursor.getString(cursor.getColumnIndex(COLUMN_BIRTHDAY)));
-            receivedStudent.setPresentDay(cursor.getString(cursor.getColumnIndex(COLUMN_PRESENT_DAY)));
+//            receivedStudent.setPresentDay(cursor.getString(cursor.getColumnIndex(COLUMN_PRESENT_DAY)));
             receivedStudent.setImage(cursor.getString(cursor.getColumnIndex(COLUMN_IMAGE)));
         }
         return receivedStudent;
@@ -157,7 +155,6 @@ public class StudentDbHelper extends SQLiteOpenHelper {
 
         db.execSQL("DELETE FROM " + TABLE_NAME + " WHERE _id='" + id + "'");
         Toast.makeText(context, "Deleted successfully.", Toast.LENGTH_SHORT).show();
-
     }
 
     /**
@@ -179,28 +176,12 @@ public class StudentDbHelper extends SQLiteOpenHelper {
                 + "', contactNo ='" + updatedStudent.getContactNo()
                 + "', birthday ='" + updatedStudent.getBirthday()
                 + "', image ='" + updatedStudent.getImage()
-               + "', presentDay ='" + updatedStudent.getPresentDay()
+//               + "', presentDay ='" + updatedStudent.getPresentDay()
                 + "'  WHERE _id='" + studentId + "'");
         Toast.makeText(context, "Updated successfully.", Toast.LENGTH_SHORT).show();
 
     }
 
-//    public static String stringSeparator = "__,__";
-//        Date dateList = new Date();
-//        public static String convertArrayToString(String[] array){
-//            String dateList = "";
-//            for (int i = 0;i<array.length; i++) {
-//                if(i<array.length-1){
-//                    dateList = dateList + stringSeparator;
-//
-//                }
-//            }
-//            return dateList;
-//    }
-//    public static String[] convertStringToArray(String dateList){
-//        String[] arr = dateList.split(stringSeparator);
-//        return arr;
-//    }
     }
 
 

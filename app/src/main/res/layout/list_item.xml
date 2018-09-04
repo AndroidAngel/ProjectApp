@@ -77,16 +77,11 @@
 
                     <ToggleButton
                         android:id="@+id/toggleBtn"
-                        android:fontFamily="sans-serif-smallcaps"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/round"
-                        android:textColor="#fff"
-                        android:textOff="OFF"
-                        android:textOn="ON"
-                        android:checked="true"
-                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                        android:textStyle="bold" />
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        style="@style/toggleButton"
+                        android:background="@drawable/ic_toggle_bg" />
                 </LinearLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
