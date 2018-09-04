@@ -14,7 +14,7 @@ public class Student {
     private String contactNo;
     private String birthday;
     private String image;
-    private String presentDays;
+    private String presentDay;
 
 
 
@@ -52,16 +52,16 @@ public class Student {
              this.birthday = birthday;
              this.image = image;
     }
-    public Student(String presentDays){
-        this.presentDays = presentDays;
+    public Student(String presentDay){
+        this.presentDay = presentDay;
     }
 
-    public String getPresentDays() {
-        return presentDays;
+    public String getPresentDay() {
+        return presentDay;
     }
 
-    public void setPresentDays(String presentDays) {
-        this.presentDays = presentDays;
+    public void setPresentDay(String presentDay) {
+        this.presentDay = presentDay;
     }
     public long getId() {
         return id;

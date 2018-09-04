@@ -27,6 +27,8 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
     private Context mContext;
     private RecyclerView mRecyclerV;
 
+    private static String LIST_SEPARATOR = "__,__";
+
     public StudentAdapter(List<Student> studentArrayList) {
         this.studentArrayList = studentArrayList;
 
@@ -139,21 +141,8 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
                 goToProfileActivity(student.getId());
             }
         });
-//        holder.presentBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked){
-//                    countClick = countClick + 1;{
-//                        Log.d("TOGGLE COUNTED", "attendance counted" + countClick);
-//                    }
-//                }
-//            }
-//        });
 
     }
-
-
-
 
     private void goToProfileActivity(long studentId) {
         Intent goToProfile = new Intent(mContext, ProfileActivity.class);

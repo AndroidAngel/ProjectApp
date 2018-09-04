@@ -15,6 +15,7 @@ import java.util.List;
 public class StudentDbHelper extends SQLiteOpenHelper {
 
 
+
     public static final String DATABASE_NAME = "student.db";
     private static final int DATABASE_VERSION = 3;
     public static String TABLE_NAME = "Student";
@@ -30,7 +31,7 @@ public class StudentDbHelper extends SQLiteOpenHelper {
     public static final String COLUMN_CONTACT_NO = "contactNo";
     public static final String COLUMN_ADDRESS = "address";
     public static final String COLUMN_IMAGE = "image";
-//    public static final String COLUMN_PRESENT_DAYS = "presentDays";
+    public static final String COLUMN_PRESENT_DAY = "presentDay";
 
 
     public StudentDbHelper(Context context) {
@@ -51,7 +52,7 @@ public class StudentDbHelper extends SQLiteOpenHelper {
                 COLUMN_PARENT_NAME + " TEXT NOT NULL, " +
                 COLUMN_CONTACT_NO + " TEXT NOT NULL, " +
                 COLUMN_ADDRESS + " TEXT NOT NULL, " +
-//                COLUMN_PRESENT_DAYS + " TEXT NOT NULL, " +
+                COLUMN_PRESENT_DAY + " TEXT," +
                 COLUMN_IMAGE + " BLOB NOT NULL);"
         );
     }
@@ -76,29 +77,13 @@ public class StudentDbHelper extends SQLiteOpenHelper {
             values.put(COLUMN_PARENT_NAME, student.getParentName());
             values.put(COLUMN_CONTACT_NO, student.getContactNo());
             values.put(COLUMN_BIRTHDAY, student.getBirthday());
-//            values.put(COLUMN_PRESENT_DAYS, student.getPresentDays());
+            values.put(COLUMN_PRESENT_DAY, student.getPresentDay());
             values.put(COLUMN_IMAGE, student.getImage());
 
             // insert
             db.insert(TABLE_NAME,null, values);
             db.close();
         }
-//    Date date = new Date();
-//    ArrayList daysPresent = new ArrayList<Date>();
-//        daysPresent.add(date);
-//        Log.d("ARRAYLIST----", "days present");
-//
-//    StudentAdapter adapter = new StudentAdapter(daysPresent);
-
-
-//
-//
-//    public List<Date> presentDays(){
-//        Date date = new Date();
-//        List<Date> presentDays = new L
-//
-//
-//        }
 
 
     public List<Student> studentList(String filter) {
@@ -128,6 +113,7 @@ public class StudentDbHelper extends SQLiteOpenHelper {
                 student.setParentName(cursor.getString(cursor.getColumnIndex(COLUMN_PARENT_NAME)));
                 student.setContactNo(cursor.getString(cursor.getColumnIndex(COLUMN_CONTACT_NO)));
                 student.setBirthday(cursor.getString(cursor.getColumnIndex(COLUMN_BIRTHDAY)));
+                student.setPresentDay(cursor.getString(cursor.getColumnIndex(COLUMN_PRESENT_DAY)));
                 student.setImage(cursor.getString(cursor.getColumnIndex(COLUMN_IMAGE)));
                 studentLinkedList.add(student);
             } while (cursor.moveToNext());
@@ -156,7 +142,7 @@ public class StudentDbHelper extends SQLiteOpenHelper {
             receivedStudent.setParentName(cursor.getString(cursor.getColumnIndex(COLUMN_PARENT_NAME)));
             receivedStudent.setContactNo(cursor.getString(cursor.getColumnIndex(COLUMN_CONTACT_NO)));
             receivedStudent.setBirthday(cursor.getString(cursor.getColumnIndex(COLUMN_BIRTHDAY)));
-//            receivedStudent.setPresentDays(cursor.getString(cursor.getColumnIndex(COLUMN_PRESENT_DAYS)));
+            receivedStudent.setPresentDay(cursor.getString(cursor.getColumnIndex(COLUMN_PRESENT_DAY)));
             receivedStudent.setImage(cursor.getString(cursor.getColumnIndex(COLUMN_IMAGE)));
         }
         return receivedStudent;
@@ -193,11 +179,28 @@ public class StudentDbHelper extends SQLiteOpenHelper {
                 + "', contactNo ='" + updatedStudent.getContactNo()
                 + "', birthday ='" + updatedStudent.getBirthday()
                 + "', image ='" + updatedStudent.getImage()
-//                + "', presentDays ='" + updatedStudent.getPresentDays()
+               + "', presentDay ='" + updatedStudent.getPresentDay()
                 + "'  WHERE _id='" + studentId + "'");
         Toast.makeText(context, "Updated successfully.", Toast.LENGTH_SHORT).show();
 
     }
 
-}
+//    public static String stringSeparator = "__,__";
+//        Date dateList = new Date();
+//        public static String convertArrayToString(String[] array){
+//            String dateList = "";
+//            for (int i = 0;i<array.length; i++) {
+//                if(i<array.length-1){
+//                    dateList = dateList + stringSeparator;
+//
+//                }
+//            }
+//            return dateList;
+//    }
+//    public static String[] convertStringToArray(String dateList){
+//        String[] arr = dateList.split(stringSeparator);
+//        return arr;
+//    }
+    }
+
 
